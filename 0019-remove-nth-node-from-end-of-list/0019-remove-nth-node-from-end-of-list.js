@@ -22,20 +22,60 @@ function getLength(node) {
 var removeNthFromEnd = function (head, n) {
 
     // Naive solution
-    let temp = head;
-    let length = getLength(head);
-    if(n === length) {
+    //     let temp = head;
+    //     let length = getLength(head);
+    //     if(n === length) {
+    //         return head.next;
+    //     }
+    //     const prevNodeIndex = length - n;
+    //    let curr = null;
+    //     // 1 2 3 4 5 6          2
+    //     for (let i = 0; i < prevNodeIndex; i++) {
+    //         prev = temp;
+    //         temp = temp.next;
+    //     }
+    //     prev.next = temp.next;
+
+    //     return head;
+
+    let left = head, right = head;
+
+    for (let i = 0; i < n; i++) {
+        right = right.next;
+    }
+    if (!right) {
         return head.next;
     }
-    const prevNodeIndex = length - n;
-   let curr = null;
-    // 1 2 3 4 5 6          2
-    for (let i = 0; i < prevNodeIndex; i++) {
-        prev = temp;
-        temp = temp.next;
+    while (right.next) {
+        left = left.next;
+        right = right.next;
     }
-    prev.next = temp.next;
-
+    left.next = left.next.next;
     return head;
-
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
