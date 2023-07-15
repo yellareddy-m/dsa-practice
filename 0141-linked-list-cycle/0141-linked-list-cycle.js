@@ -24,24 +24,24 @@ var hasCycle = function (head) {
     // return false;
 
     // fast slow pointers
-    // let slow = head, fast = head.next;
-    // while (slow !== head) {
-    //     slow = slow.next;
-    //     fast = fast?.next?.next;
-    //     if (fast === slow) {
-    //         return true;
-    //     }
-    // }
-    // return false;
-
-    // using flag and modification of node structure 
-    let temp = head;
-    while (temp) {
-        if (temp.flag === 1) {
+    let slow = head, fast = head;
+    while (slow !== null && fast !== null) {
+        slow = slow.next;
+        fast = fast?.next?.next;
+        if (fast === slow) {
             return true;
         }
-        temp.flag = 1;
-        temp = temp.next;
     }
     return false;
+
+    // using flag and modification of node structure 
+    // let temp = head;
+    // while (temp) {
+    //     if (temp.flag === 1) {
+    //         return true;
+    //     }
+    //     temp.flag = 1;
+    //     temp = temp.next;
+    // }
+    // return false;
 };
