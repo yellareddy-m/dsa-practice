@@ -16,13 +16,17 @@ var deleteDuplicates = function(head) {
     
     while(head) {
         if (head.next && head.val === head.next.val) {
+            // in the if only deletion happens previous is not updated coz 
+            // still we need to find next unique value
             while(head.next && head.val === head.next.val) {
                 head = head.next;
             }
             prev.next = head.next;
         } else {
+            // update previous only when unique number is there
             prev = prev.next;
         }
+        // update everytime
         head = head.next;
     }
     return dummy.next;
