@@ -37,9 +37,11 @@ var getIntersectionNode = function(headA, headB) {
     while(currA !== currB) {
         currA = !currA ? headB : currA.next;
         currB = !currB ? headA : currB.next;
-        if (currA === currB) {
-            return currA;
-        }
+        // we can remove this step , coz while breaks if they are equal 
+        // in that case we can just return currA || currB
+        // if (currA === currB) {
+        //     return currA;
+        // }
     }
-    return null;
+    return currA;
 };
