@@ -30,6 +30,10 @@ var getIntersectionNode = function(headA, headB) {
     let currA = headA;
     let currB = headB;
     
+    if (currA === currB) {
+        return currA
+    }
+    
     while(currA !== currB) {
         currA = !currA ? headB : currA.next;
         currB = !currB ? headA : currB.next;
@@ -37,5 +41,5 @@ var getIntersectionNode = function(headA, headB) {
             return currA;
         }
     }
-    return headA;
+    return null;
 };
