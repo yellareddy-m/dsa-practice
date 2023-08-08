@@ -12,17 +12,30 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    var obj = new Map();
-    while(headA) {
-        obj.set(headA, 1);
-        headA = headA.next;
-    }
     
-    while(headB) {
-        if (obj.get(headB)) {
-            return headB;
+// USING EXTRA SPACE
+    
+//     var obj = new Map();
+//     while(headA) {
+//         obj.set(headA, 1);
+//         headA = headA.next;
+//     }
+    
+//     while(headB) {
+//         if (obj.get(headB)) {
+//             return headB;
+//         }
+//         headB = headB.next;
+//     }
+    let currA = headA;
+    let currB = headB;
+    
+    while(currA !== currB) {
+        currA = !currA ? headB : currA.next;
+        currB = !currB ? headA : currB.next;
+        if (currA === currB) {
+            return currA;
         }
-        headB = headB.next;
     }
-    return null;
+    return headA;
 };
