@@ -49,14 +49,14 @@ var insertIntoBST = function(root, val) {
                 continue;
             }
             currentNode.right = new TreeNode(val);
-            return root;
+            break;
         } else {
             if (currentNode.left) {
                 currentNode = currentNode.left;
                 continue;
             }
             currentNode.left = new TreeNode(val);
-           return root;
+           break;
         }
     }
     return root;
