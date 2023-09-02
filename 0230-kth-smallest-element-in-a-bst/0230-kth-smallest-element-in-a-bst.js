@@ -16,14 +16,14 @@ var kthSmallest = function(root, k) {
         return root;
     }
     let arr = [];
-    traverse(root, arr);
+    traverse(root, arr, k);
     return arr[k - 1];
 };
 
-function traverse(node, arr) {
-    if (node) {
-        traverse(node.left, arr);
+function traverse(node, arr, k) {
+    if (node && arr.length < k) {
+        traverse(node.left, arr, k);
         arr.push(node.val);
-        traverse(node.right, arr);
+        traverse(node.right, arr, k);
     }
 }
