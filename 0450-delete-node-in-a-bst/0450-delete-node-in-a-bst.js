@@ -28,6 +28,7 @@ var deleteNode = function(root, key) {
             return root.left;
         }
         // Node has both children
+        // you can use either of the below statements , if or else
         // if (root.left && root.right) {
         else {
             // minimum of right subtree
