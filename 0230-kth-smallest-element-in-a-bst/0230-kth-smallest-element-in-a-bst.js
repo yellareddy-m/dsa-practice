@@ -17,7 +17,7 @@ var kthSmallest = function(root, k) {
     }
     let arr = [];
     traverse(root, arr);
-    // we can stop traversing after k nodes and return 
+    // we can stop traversing after k nodes and return , pass k to function traverse
     // return arr[k - 1];    
     return arr[k - 1];
 
