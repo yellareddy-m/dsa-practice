@@ -29,8 +29,8 @@ var deleteNode = function(root, key) {
         }
         // Node has both children
         // you can use either of the below statements , if or else
-        // if (root.left && root.right) {
-        else {
+        if (root.left && root.right) {
+        // else {
             // minimum of right subtree
             let minNode = root.right;
             while(minNode.left) {
