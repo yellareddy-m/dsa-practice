@@ -28,7 +28,8 @@ var deleteNode = function(root, key) {
             return root.left;
         }
         // Node has both children
-        if (root.left && root.right) {
+        // if (root.left && root.right) {
+        else {
             // minimum of right subtree
             let minNode = root.right;
             while(minNode.left) {
