@@ -28,6 +28,8 @@ var MyStack = function() {
 MyStack.prototype.push = function(x) {
     this.queue.push(x);
     let size = this.queue.size();
+    // here queue.pop actually pops from the first
+    // so we need this first , 
     while(size > 1) {
         this.queue.push(this.queue.pop());
         size--;
