@@ -8,8 +8,6 @@ var once = function(fn) {
         if (!called) {
             called = true;
             return fn(...args);
-        } else {
-            return undefined;
         }
     }
 };
