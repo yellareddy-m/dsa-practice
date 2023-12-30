@@ -3,25 +3,20 @@
  * @return { increment: Function, decrement: Function, reset: Function }
  */
 var createCounter = function(init) {
-    const temp = init;
-    
-    function increment() {
-        return ++init;
-    }
-    
-    function decrement() {
-        return --init;
-    }
-    
-    function reset() {
-        init = temp;
-        return init
-    }
-
+    let currentValue = init;
     return {
-        increment,
-        decrement,
-        reset
+        increment: function() {
+            currentValue += 1;
+            return currentValue;
+        },
+        decrement: function() {
+            currentValue -= 1;
+            return currentValue;
+        },
+        reset: function() {
+            currentValue = init;
+            return currentValue;
+        }
     }
 };
 
