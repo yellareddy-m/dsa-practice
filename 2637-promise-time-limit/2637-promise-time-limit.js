@@ -8,18 +8,18 @@ var timeLimit = function(fn, t) {
     return async function(...args) {
         // ONE WAY
         
-        return new Promise((resolve, reject) => {
+        // return new Promise((resolve, reject) => {
         // after the promise resolves or rejects we cannot re-reject or re-resolve 
         // so even if ou dont clear the timeout it will the same way
         // you can test this by commenting out the finally block 
         // this wont make any difference.
             // but always clear the timeout to prevent memory LEAKS
-            const timeoutId = setTimeout(() => reject("Time Limit Exceeded"), t)
-            fn(...args)
-                .then((response) => resolve(response))
-                .catch((error) => reject(error))
-                .finally(() => clearTimeout(timeoutId))
-        })
+        //     const timeoutId = setTimeout(() => reject("Time Limit Exceeded"), t)
+        //     fn(...args)
+        //         .then((response) => resolve(response))
+        //         .catch((error) => reject(error))
+        //         .finally(() => clearTimeout(timeoutId))
+        // })
         
         // USING AWAIT
         // return new Promise(async (resolve, reject) => {
@@ -30,6 +30,11 @@ var timeLimit = function(fn, t) {
         //         reject(err)
         //     }
         // });
+        
+        // USING PROMISE .race
+        
+        const rejectPromise = new Promise((resolve, reject) => setTimeout(() => reject("Time Limit Exceeded"), t));
+        return Promise.race([fn(...args), rejectPromise]);
     }
 };
 
