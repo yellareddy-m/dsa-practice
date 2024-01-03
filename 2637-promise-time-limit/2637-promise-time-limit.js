@@ -15,7 +15,7 @@ var timeLimit = function(fn, t) {
             fn(...args)
                 .then((response) => resolve(response))
                 .catch((error) => reject(error))
-                .finally(() => clearTimeout(timeoutId))
+                // .finally(() => clearTimeout(timeoutId))
         })
         
         // USING AWAIT
