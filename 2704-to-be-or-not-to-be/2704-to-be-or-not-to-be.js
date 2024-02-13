@@ -4,7 +4,7 @@
  */
 var expect = function(val) {
     return {
-        toBe: function(value){
+        toBe:  function(value) {
             if (val === value) {
                 return true;
             } else {
