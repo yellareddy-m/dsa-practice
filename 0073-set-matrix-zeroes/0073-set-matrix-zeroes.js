@@ -15,17 +15,17 @@ var setZeroes = function(matrix) {
         }
     }
     for (let i = 0; i < rowList.length; i++) {
-        if (rowList[i]) {
             for (let j = 0; j < columnList.length; j++) {
+                 if (rowList[i] || columnList[j]) {
                 matrix[i][j] = 0;
             }
         }
     }
-    for (let i = 0; i < columnList.length; i++) {
-        if (columnList[i]){
-            for(let j = 0; j <rowList.length; j++) {
-                matrix[j][i] = 0;
-            }
-        }
-    }
+    // for (let i = 0; i < columnList.length; i++) {
+    //     if (columnList[i]){
+    //         for(let j = 0; j <rowList.length; j++) {
+    //             matrix[j][i] = 0;
+    //         }
+    //     }
+    // }
 };
