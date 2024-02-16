@@ -52,6 +52,3 @@ var isValid = function(s) {
 
 
 
-
-
-
