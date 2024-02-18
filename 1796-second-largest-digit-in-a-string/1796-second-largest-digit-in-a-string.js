@@ -27,7 +27,7 @@ var secondHighest = function(s) {
         if (currentNum > largest) {
             secondLargest = largest;
             largest = currentNum;
-        } else if (currentNum > secondLargest && currentNum !== largest) {
+        } else if (currentNum > secondLargest && currentNum < largest) {
                secondLargest = currentNum;
         }
     }
