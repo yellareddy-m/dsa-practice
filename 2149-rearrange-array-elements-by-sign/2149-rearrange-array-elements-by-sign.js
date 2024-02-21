@@ -4,14 +4,14 @@
  */
 var rearrangeArray = function(nums) {
     let result = [];
-    let i = 0, j =1;
-    for (let n of nums) {
-        if (n > 0){
-            result[i] = n;
-            i += 2;
+    let m = 0, n = 1;
+    for(let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+            result[m] = nums[i];
+            m += 2;
         } else {
-            result[j] = n;
-            j += 2;
+            result[n] = nums[i];
+            n += 2;
         }
     }
     return result;
