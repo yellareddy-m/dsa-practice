@@ -20,14 +20,14 @@ var rotate = function(nums, k) {
     // const details = nums.splice(nums.length - k);
     // nums.unshift(...details);
     
-    function reverse(i, j){
-        while (i < j){
-            [nums[j], nums[i]] = [nums[i], nums[j]];
+    function reverse(i, j) {
+        while(i < j) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
             i++;
             j--;
         }
     }
-    reverse(0, nums.length-1); // 7,6,5,4,3,2,1
-    reverse(0, k - 1); // 5,6,7,4,3,2,1
-    reverse(k, nums.length - 1); //5,6,7,1,2,3,4
+  reverse(0, nums.length - 1) // 7,6,5,4,3,2,1
+ reverse(0, k - 1) // 5,6,7,4,3,2,1
+ reverse(k, nums.length - 1)//5,6,7,1,2,3,4
 };
